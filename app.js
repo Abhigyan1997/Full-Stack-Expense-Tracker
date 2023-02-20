@@ -7,8 +7,8 @@ const errorController = require('./controllers/error');
 
 const sequelize = require('./util/database');
 
-//const User = require('./models/user');
-const Expense = require('./models/expense');
+const User = require('./models/user');
+//const Expense = require('./models/expense');
 var cors = require('cors');
 
 const app = express();
@@ -37,7 +37,7 @@ sequelize
  .sync()
  .then(result => {
     //console.log(result);
-    app.listen(3000);
+    app.listen(4000);
  })
  .catch(err => {
     console.log(err);
