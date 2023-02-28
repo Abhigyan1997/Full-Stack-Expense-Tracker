@@ -8,7 +8,7 @@ id:{
     allowNull: false,
     primaryKey:true
 },
-name: Sequelize.STRING,
+name: Sequelize.STRING, 
 email:{
      type:Sequelize.STRING,
      allowNull:false,
@@ -17,4 +17,4 @@ email:{
 password:Sequelize.STRING,
 });
 
-module.exports=User; 
+module.exports=User;    
