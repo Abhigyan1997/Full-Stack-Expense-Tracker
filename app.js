@@ -28,8 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user',loginRoutes)
 app.use('/user',userRoutes);
 app.use(expenseRoutes);
-app.use(errorController.get404);
-
+app.use(errorController.get404);    
+ 
 sequelize
  .sync()
  .then(result => {

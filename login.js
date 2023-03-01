@@ -5,7 +5,7 @@ async function login(event) {
             email:event.target.email.value,
             password:event.target.password.value
         }
-     const response= await axios.post('http://localhost:3000/user/login',obj)
+     const response= await axios.post('http://localhost:1000/user/login',obj)
         if(response.status=201){
              window.location.href="../ExpenseApp.html"
              alert("User Succesfullu logged in")

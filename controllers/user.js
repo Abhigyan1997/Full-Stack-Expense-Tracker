@@ -1,5 +1,6 @@
   const User=require('../models/user');
   const bcrypt=require('bcrypt');
+  const jwt=require('jsonwebtoken');
 
   exports.signup= async (req , res)=>{
     try{
@@ -20,7 +21,8 @@
   }
   }
 
-  exports.login = async (req, res) => {
+
+exports.login = async (req, res) => {
     try {
       const { email, password } = req.body;
       if (email == null || email.length === 0 || password == null || password.length === 0) {
@@ -33,7 +35,7 @@
             throw new Error("Something went wrong")
           }
           if(result===true){
-            res.status(200).json({ success: true, message: 'user logged in successfully' });
+            res.status(200).json({success: true, message:'user logged in successfully' });
           }
         })
       } else if (user.length === 0) {

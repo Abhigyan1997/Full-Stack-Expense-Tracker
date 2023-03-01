@@ -1,8 +1,7 @@
 const Expense = require('../models/expense');
 
 exports.addExpense = async (req, res, next)=> {
-
-   try{   
+    try{   
    //    if(!req.body.phone){
    //       throw new Error('Phone number is mandatory');
    //    }
@@ -25,7 +24,7 @@ exports.getExpense = async (req, res, next) => {
     try{
      const expenses = await Expense.findAll();
      console.log(expenses);
-     res.status(200).json({allExpenses: expenses})
+    return res.status(200).json({expenses, success:true})
     } catch(error){
      console.log('Get expense is failing', JSON.stringify(error));
      res.status(500).json({error: err})
