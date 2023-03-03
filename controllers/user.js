@@ -21,6 +21,10 @@
   }
   }
 
+  function generateAccessToken(id,name){ 
+  return jwt.sign({userId:id,name:name},'SecretKey')
+}
+   
 
 exports.login = async (req, res) => {
     try {
@@ -35,7 +39,7 @@ exports.login = async (req, res) => {
             throw new Error("Something went wrong")
           }
           if(result===true){
-            res.status(200).json({success: true, message:'user logged in successfully' });
+            res.status(200).json({success: true, message:'user logged in successfully',token:generateAccessToken(user[0].id,user[0].name) });
           }
         })
       } else if (user.length === 0) {

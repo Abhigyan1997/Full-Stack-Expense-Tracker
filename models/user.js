@@ -16,5 +16,5 @@ email:{
 } ,
 password:Sequelize.STRING,
 });
- 
+  
 module.exports=User;    

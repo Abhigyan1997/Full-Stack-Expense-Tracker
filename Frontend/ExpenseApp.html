@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body style="background-color: rgb(252, 146, 8);">
+      <div class="container" style="padding: 50px;">
+      <div class="box">
+           
+      </div><br>
+      <h2 style="text-align:center;color: rgb(9, 9, 9);">Expense Tracker</h2>
+          <form onsubmit="saveExpense(event)">
+            <div class="form-floating">
+            <input type="number" id="amount" class="form-control" placeholder="Amount" required>
+            <label for="amount" class="form-label">Choose Expense Amount</label>
+        </div>
+        <br>
+        <div class="form-floating">
+            <input type="text" id="description" class="form-control" placeholder="Description" required>
+            <label for="description" class="form-lable">Choose Description</label>
+        </div>  <br>
+        <div class="form-floating">
+        <select id="category" class="form-select">
+            <option>Movie</option>
+            <option>fuel</option>
+            <option>Electricity</option>
+            <option>food</option>
+            <option>others</option>>
+        </select>
+        <label for="category" class="form-label">Choose A Category</label>
+    </div> 
+        <br>
+            <button class="btn btn-primary">Add Expense</button>
+        </form>
+        <br>
+        <div class="form-lable">
+        <ul id="listOfExpense"></ul>
+        </div>
+    </div>
+   <!-- // <script src="index.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>function saveExpense(event) {
+            event.preventDefault();
+            const amount = event.target.amount.value;
+            const description = event.target.description.value;
+            const category = event.target.category.value;
+        
+            const obj = {amount, description, category};
+            const token=localStorage.getItem('token');
+            axios.post("http://localhost:1000/expense/add-expense",obj,{headers:{"Authorization":token}})
+             .then((response) => {
+            console.log(response);
+            showNewExpenseOnScreen(response.data.newExpense);
+        })
+         .catch((err) => {
+          document.body.innerHTML =
+          document.body.innerHTML + "<h4>Something went worng";
+          console.log(err);
+         });
+        }
+        
+         document.addEventListener("DOMContentLoaded", () => {
+          const token=localStorage.getItem('token');
+         axios.get("http://localhost:1000/expense/get-expenses",{headers:{"Authorization":token}})
+         .then((response) => {
+         console.log(response.data.expenses);
+         for (var i = 0; i < response.data.expenses.length; i++) {
+          //console.log(response.data.allExpenses);
+          showNewExpenseOnScreen(response.data.expenses[i]);
+         }
+        })
+        .catch((err) => {
+        console.log(err);
+        });
+        });
+        
+        function showNewExpenseOnScreen(expense) {
+           const parentNode = document.getElementById("listOfExpense");
+           const childHTML = `   <div <li id=${expense.id}>${expense.amount}-${expense.category}-${expense.description}
+               <button class="btn btn-primary" onclick=deleteExpense('${expense.id}') > Delete Expense</button>
+               <button class="btn btn-primary" onclick=editExpense('${expense.amount}','${expense.description}','${expense.category}','${expense.id}')> Edit Expense</button>
+               </li>`;
+            parentNode.innerHTML = parentNode.innerHTML + childHTML;
+        }
+        
+        //Edit Expense
+        function editExpense(amount, description, category, expenseid) {
+           document.getElementById("amount").value = amount;
+           document.getElementById("description").value = description;
+           document.getElementById("category").value = category;
+           deleteExpense(expenseid);
+        }
+        
+        // delete Expense
+        function deleteExpense(expenseid) {
+          const token=localStorage.getItem('token');
+           axios.delete(`http://localhost:1000/expense/delete-expense/${expenseid}`,{headers:{"Authorization":token}})
+           .then((response) => {
+           removeExpenseFromScreen(expenseid);
+         })
+         .catch((err) => console.log(err));
+        }
+        
+        function removeExpenseFromScreen(expenseid) {
+        
+           const parentNode = document.getElementById("listOfExpense");
+           const childNodeToBeDeleted = document.getElementById(expenseid);
+           if (childNodeToBeDeleted) {
+            parentNode.removeChild(childNodeToBeDeleted);
+          }
+        }</script>
+  </body>
+</html>

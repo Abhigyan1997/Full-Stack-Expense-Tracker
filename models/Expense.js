@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
 
+const User = require('../models/user');
+
 const Expense = sequelize.define('expense', {
   id: {
     type: Sequelize.INTEGER,
@@ -9,9 +11,8 @@ const Expense = sequelize.define('expense', {
     allowNull: false,
     primaryKey: true
   },
-//   expense: Sequelize.STRING,
   amount: {
-    type: Sequelize.STRING,  
+    type: Sequelize.INTEGER,  
     allowNull: false
   },
   description: {
@@ -21,7 +22,12 @@ const Expense = sequelize.define('expense', {
   category: {
     type: Sequelize.STRING,
     allowNull: false
-  }
+  },
+  
+  
 });
+Expense.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Expense, { foreignKey: 'userId' });
+
 
 module.exports = Expense;
