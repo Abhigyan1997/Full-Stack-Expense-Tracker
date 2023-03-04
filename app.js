@@ -24,15 +24,18 @@ const userRoutes = require('./routes/user');
 const expenseRoutes = require('./routes/expense')
 const loginRoutes=require('./routes/user')
 const purchaseRoutes=require('./routes/purchase')
+const premiumFeature=require('./routes/premiumFeature')
+
 app.use(bodyParser.json({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use('/user',loginRoutes)
 app.use('/user',userRoutes);
 app.use('/purchase',purchaseRoutes);
+app.use(premiumFeature);
 app.use(expenseRoutes);
-app.use(errorController.get404);    
 
+app.use(errorController.get404);    
 User.hasMany(Expense);
 Expense.belongsTo(User);
 
@@ -40,7 +43,7 @@ User.hasMany(Order);
 Order.belongsTo(User);
  
 sequelize
- .sync({alter:true})
+ .sync()
  .then(result => {
     //console.log(result);
     app.listen(1000);

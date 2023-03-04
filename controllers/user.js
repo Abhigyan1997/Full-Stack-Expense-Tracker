@@ -21,8 +21,8 @@
   }
   }
 
-  function generateAccessToken(id,name){ 
-  return jwt.sign({userId:id,name:name},'SecretKey') 
+  const generateAccessToken=(id,name,ispremiumuser)=>{ 
+  return jwt.sign({userId:id,name:name,ispremiumuser},'SecretKey') 
 }
    
 
@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
             throw new Error("Something went wrong")
           }
           if(result===true){
-            res.status(200).json({success: true, message:'user logged in successfully',token:generateAccessToken(user[0].id,user[0].name) });
+            res.status(200).json({success: true, message:'user logged in successfully',token:generateAccessToken(user[0].id,user[0].name,user[0].ispremiumuser) });
           }
         })
       } else if (user.length === 0) {
