@@ -22,7 +22,7 @@
   }
 
   function generateAccessToken(id,name){ 
-  return jwt.sign({userId:id,name:name},'SecretKey')
+  return jwt.sign({userId:id,name:name},'SecretKey') 
 }
    
 

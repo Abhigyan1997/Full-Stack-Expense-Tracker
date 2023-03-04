@@ -23,7 +23,7 @@ const Expense = sequelize.define('expense', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  
+   
   
 });
 Expense.belongsTo(User, { foreignKey: 'userId' });

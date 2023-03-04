@@ -15,6 +15,7 @@ email:{
      unique:true
 } ,
 password:Sequelize.STRING,
+ispremiumuser:Sequelize.BOOLEAN
 });
   
 module.exports=User;    
