@@ -14,4 +14,4 @@ const Order=sequelize.define('order',{
     status:Sequelize.STRING
     });
       
-    module.exports=Order;    
+    module.exports=Order;     
