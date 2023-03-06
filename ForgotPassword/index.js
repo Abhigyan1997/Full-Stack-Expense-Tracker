@@ -18,4 +18,4 @@ function forgotpassword(e) {
     }).catch(err => {
         document.body.innerHTML += `<div style="color:red;">${err} <div>`;
     })
-}
+}     

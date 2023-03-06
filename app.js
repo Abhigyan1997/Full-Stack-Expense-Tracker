@@ -49,7 +49,7 @@ Order.belongsTo(User);
 User.hasMany(Forgotpassword);
 Forgotpassword.belongsTo(User);
  
-sequelize
+sequelize 
  .sync()
  .then(result => {
     //console.log(result);

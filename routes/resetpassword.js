@@ -13,4 +13,4 @@ router.get('/resetpassword/:id', resetpasswordController.resetPassword)
 
 router.use('/forgotpassword', resetpasswordController.forgotPassword)
 
-module.exports = router;
+module.exports = router;  

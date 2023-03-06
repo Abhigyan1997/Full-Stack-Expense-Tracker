@@ -51,7 +51,7 @@ exports.resetPassword = async (req,res,next) => {
     try {
         console.log('into reset')
 
-        let id = req.params.id;
+        let id = req.params.id;    
 
         let forgotpasswordRequest = await ForgotPassword.findOne({where:{id}})
 
