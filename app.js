@@ -45,7 +45,7 @@ Expense.belongsTo(User);
 
 User.hasMany(Order);
 Order.belongsTo(User);
-
+   
 User.hasMany(Forgotpassword);
 Forgotpassword.belongsTo(User);
  

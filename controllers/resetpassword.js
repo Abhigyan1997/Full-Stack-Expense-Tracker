@@ -37,7 +37,7 @@ exports.forgotPassword = async (req,res,next) => {
     tranEmailApi.sendTransacEmail({
         sender,
         to: recievers,
-        subject: 'forgotpass please reset',
+        subject: 'Reset Password',
         textContent: `Follow the link and reset password`,
         htmlContent: `Click on the link below to reset password <br> <a href="http://localhost:1000/password/resetpassword/${id}">Reset password</a>`,
 
@@ -47,63 +47,67 @@ exports.forgotPassword = async (req,res,next) => {
     }).catch(err=>console.log(err))
 }
 
-exports.resetPassword = async (req,res,next) => {
-    try {
-        console.log('into reset')
+exports.resetPassword = (req, res) => {
+    const id =  req.params.id;
+    Forgotpassword.findOne({ where : { id }}).then(forgotpasswordrequest => {
+        if(forgotpasswordrequest){
+            forgotpasswordrequest.update({ active: false});
+            res.status(200).send(`<html>
+                                    <script>
+                                        function formsubmitted(e){
+                                            e.preventDefault();
+                                            console.log('called')
+                                        }
+                                    </script>
+                                    <form action="/password/updatepassword/${id}" method="get">
+                                        <label for="newpassword">Enter New password</label>
+                                        <input name="newpassword" type="password" required></input>
+                                        <button>reset password</button>
+                                    </form>
+                                </html>`
+                                )
+            res.end()
 
-        let id = req.params.id;    
-
-        let forgotpasswordRequest = await ForgotPassword.findOne({where:{id}})
-
-        if(!forgotpasswordRequest){
-            return res.status(404).json({msg: 'User desnt exist'})
         }
-
-        forgotpasswordRequest.update({active:false})
-        res.status(200).send(`<html>
-        <script>
-            function formsubmitted(e){
-                e.preventDefault();
-                console.log('called')
-            }
-        </script>
-        <form action="/passwordpassword/update/${id}" method="get">
-            <label for="newpassword">Enter New password</label>
-            <input name="newpassword" type="password" required></input>
-            <button>reset password</button>
-        </form>
-    </html>`)
-
-    res.end();
-    } catch (error) {
-        return res.status(500).json({ message: error});
-    }
+    })
 }
-exports.updatePassword = async (req,res,next) => {
-    console.log('into update');
-    const { newpassword } = req.query;
-    const { id } = req.params;
 
-    console.log((newpassword) ) 
+
+exports.updatePassword = (req, res) => {
+
     try {
-        const resetpasswordrequest  = await ForgotPassword.findOne({where:{id}})
-        const user = await User.findOne({where:{id:resetpasswordrequest.userId }})
-        if(!user){
-            return res.status(404).json({ error: 'No user Exists', success: false})
-        }
+        const { newpassword } = req.query;
+        const { resetpasswordid } = req.params;
+        Forgotpassword.findOne({ where : { id: resetpasswordid }}).then(resetpasswordrequest => {
+            User.findOne({where: { id : resetpasswordrequest.userId}}).then(user => {
+                // console.log('userDetails', user)
+                if(user) {
+                    //encrypt the password
 
-        const saltRounds = 10;
-        bcrypt.genSalt(saltRounds, function (err,salt) {
-            if(err){
-                console.log(err)
-                throw new Error(err);
+                    const saltRounds = 10;
+                    bcrypt.genSalt(saltRounds, function(err, salt) {
+                        if(err){
+                            console.log(err);
+                            throw new Error(err);
+                        }
+                        bcrypt.hash(newpassword, salt, function(err, hash) {
+                            // Store hash in your password DB.
+                            if(err){
+                                console.log(err);
+                                throw new Error(err);
+                            }
+                            user.update({ password: hash }).then(() => {
+                                res.status(201).json({message: 'Successfuly update the new password'})
+                            })
+                        });
+                    });
+            } else{
+                return res.status(404).json({ error: 'No user Exists', success: false})
             }
-            bcrypt.hash(newpassword, salt, async(err, hash)=>{
-                await user.update({ password:hash })
-                res.status(201).json({message: 'Successfuly update the new password'})
-            });
+            })
         })
-    } catch (error) {
+    } catch(error){
         return res.status(403).json({ error, success: false } )
     }
+
 }
