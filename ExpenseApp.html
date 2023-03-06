@@ -40,7 +40,7 @@
         <label for="category" class="form-label">Choose A Category</label>
     </div> 
         <br>
-       
+          <button onclick="download()" id="downloadexpense">Download File</button>
             <button class="btn btn-primary">Add Expense</button> <button class="btn btn-primary" id="rzp-button1">Buy Premium</button>
         </form>
         <div id="message"></div>
@@ -73,6 +73,27 @@
          });
         }
         
+        function download(){
+        axios.get('http://localhost:1000/user/download', { headers: {"Authorization" : token} })
+       .then((response) => {
+        if(response.status === 201){
+            //the bcakend is essentially sending a download link
+            //  which if we open in browser, the file would download
+            var a = document.createElement("a");
+            a.href = response.data.fileUrl;
+            a.download = 'myexpense.csv';
+            a.click();
+        } else {
+            throw new Error(response.data.message)
+        }
+
+    })
+    .catch((err) => {
+        showError(err)
+    });
+}
+
+
         
 function showPremiumuserMessage(){
          document.getElementById('rzp-button1').style.visibility = "hidden";
@@ -188,7 +209,7 @@ function parseJwt (token) {
          .catch((err) => console.log(err));
         }
         
-        function removeExpenseFromScreen(expenseid) { 
+        function removeExpenseFromScreen(expenseid) {
         
            const parentNode = document.getElementById("listOfExpense");
            const childNodeToBeDeleted = document.getElementById(expenseid);
