@@ -10,6 +10,7 @@ const User=require('./models/user');
 const Expense=require('./models/Expense');
 const Order=require('./models/orders');
 const Forgotpassword = require('./models/forgotpassword');
+const downloadFile=require('./models/downloadFile')
 
 var cors = require('cors');
 
@@ -50,10 +51,10 @@ User.hasMany(Forgotpassword);
 Forgotpassword.belongsTo(User);
  
 sequelize 
- .sync()
+ .sync({alter:true})
  .then(result => {
     //console.log(result);
-    app.listen(1000);
+    app.listen(2000);
  })
  .catch(err => {
     console.log(err);
