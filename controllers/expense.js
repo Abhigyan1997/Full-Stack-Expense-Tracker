@@ -52,16 +52,19 @@ exports.addExpense = async (req, res, next)=> {
  }
  
 
-exports.getExpense = async (req, res, next) => {
-    try{
-     const expenses = await Expense.findAll({where:{userId:req.user.id}});
-     console.log(expenses);
-    return res.status(200).json({expenses,success:true})
-    }
-     catch(err){
-     console.log('Get expense is failing', JSON.stringify(err));
-     return res.status(500).json({error: err, success: false})
-    }
+ exports.getExpenses = async (req, res) => {
+  try {
+      const totalCount=await UserServices.countExpenses(req.user);
+      const { page, rows } = req.query;
+      offset = (page-1)*rows
+      limit = rows * 1;
+      const expenses = await req.user.getExpenses(req.user, { offset, limit });
+      res.status(200).json({expenses,totalCount});
+  }
+  catch (error) {
+      res.status(504).json({ message: 'Something went wrong!', error: error });
+      console.log(error);
+  }
 }
 
 exports.deleteExpense = async (req, res) => {

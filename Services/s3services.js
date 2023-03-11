@@ -37,4 +37,4 @@ return new Promise((resolve,reject)=>{
 }
 module.exports={
     uploadtoS3
-}
+} 

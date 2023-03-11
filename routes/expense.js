@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/expense/add-expense', userauthenticate.authenticate,expenseController.addExpense);
 
-router.get('/expense/get-expenses',userauthenticate.authenticate, expenseController.getExpense);
+router.get('/expense/get-expenses',userauthenticate.authenticate, expenseController.getExpenses);
 
 router.delete('/expense/delete-expense/:expenseid',userauthenticate.authenticate, expenseController.deleteExpense);  
 
