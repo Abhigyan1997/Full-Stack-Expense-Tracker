@@ -1,6 +1,10 @@
 const path = require('path');
+const fs=require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
+const helmet=require('helmet');
+const compression=require('compression');
+const morgan=require('morgan');
 
 const errorController = require('./controllers/error');
 
@@ -20,6 +24,7 @@ const dotenv = require('dotenv');
 app.use(cors());
 dotenv.config();
 
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
@@ -29,6 +34,15 @@ const loginRoutes=require('./routes/user')
 const purchaseRoutes=require('./routes/purchase')
 const premiumFeature=require('./routes/premiumFeature')
 const resetPasswordRoutes = require('./routes/resetpassword')
+
+const accessLogStream=fs.createWriteStream(
+   path.join(__dirname,'access.log'),
+   {flags:'a'}
+   );
+
+app.use(helmet());
+app.use(compression());
+app.use(morgan('combined',{stream:accessLogStream}));
 
 app.use(bodyParser.json({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
