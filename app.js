@@ -8,6 +8,8 @@ const morgan=require('morgan');
 
 const errorController = require('./controllers/error');
 
+const dotenv = require('dotenv');
+dotenv.config();
 const sequelize = require('./util/database');
 
 const User=require('./models/user');
@@ -20,9 +22,9 @@ var cors = require('cors');
 
 const app = express();
 
-const dotenv = require('dotenv');
+
 app.use(cors());
-dotenv.config();
+
 
 
 app.set('view engine', 'ejs');
