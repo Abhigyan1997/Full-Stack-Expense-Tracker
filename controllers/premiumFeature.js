@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Expense = require('../models/expense');
+const Expense = require('../models/Expense'); 
 const sequelize = require('../util/database');
 
 exports.getUserLeaderBoard = async (req, res)=>{
@@ -20,4 +20,4 @@ exports.getUserLeaderBoard = async (req, res)=>{
         console.log(err);
         res.status(500).json(err);
     }
-}  
+}     
