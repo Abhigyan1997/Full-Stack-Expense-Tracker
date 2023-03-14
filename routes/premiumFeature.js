@@ -2,7 +2,7 @@ const express = require('express');
 
 const preiumFearureController = require('../controllers/premiumFeature');
 
-const authenticatemiddleware = require('../middleware/auth');
+const authenticatemiddleware = require('../Middleware/auth');
 
 const router = express.Router();
 

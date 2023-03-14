@@ -67,7 +67,7 @@ User.hasMany(Forgotpassword);
 Forgotpassword.belongsTo(User);
  
 sequelize 
- .sync()
+ .sync({alter:true})
  .then(result => {
     //console.log(result);
     app.listen(2000);
