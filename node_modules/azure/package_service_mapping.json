@@ -1,0 +1,426 @@
+{
+  "azure": {
+    "service_name": "Azure",
+    "category": "Management"
+  },
+  "azure-arm-advisor": {
+    "service_name": "Advisor",
+    "category": "Management"
+  },
+  "azure-arm-analysisservices": {
+    "service_name": "Analysis Services",
+    "category": "Management"
+  },
+  "azure-arm-apimanagement": {
+    "category": "Management",
+    "service_name": "API Management"
+  },
+  "azure-arm-appinsights": {
+    "category": "Management",
+    "service_name": "App Insights"
+  },
+  "azure-arm-authorization": {
+    "service_name": "Authorization",
+    "category": "Management"
+  },
+  "azure-arm-automation": {
+    "service_name": "Automation",
+    "category": "Management"
+  },
+  "azure-arm-azurestack": {
+    "category": "Management",
+    "service_name": "Azure Stack"
+  },
+  "azure-arm-batch": {
+    "category": "Management",
+    "service_name": "Batch Management"
+  },
+  "azure-arm-batchai": {
+    "category": "Management",
+    "service_name": "Batch AI"
+  },
+  "azure-arm-billing": {
+    "service_name": "Billing",
+    "category": "Management"
+  },
+  "azure-arm-cdn": {
+    "service_name": "CDN",
+    "category": "Management"
+  },
+  "azure-arm-cognitiveservices": {
+    "service_name": "Cognitive Services",
+    "category": "Management"
+  },
+  "azure-arm-commerce": {
+    "service_name": "Commerce",
+    "category": "Management"
+  },
+  "azure-arm-compute": {
+    "service_name": "Virtual Machines",
+    "category": "Management"
+  },
+  "azure-arm-consumption": {
+    "category": "Management",
+    "service_name": "Consumption Management"
+  },
+  "azure-arm-containerinstance": {
+    "category": "Management",
+    "service_name": "ContainerInstance Management"
+  },
+  "azure-arm-containerregistry": {
+    "service_name": "Container Registry",
+    "category": "Management"
+  },
+  "azure-arm-containerservice": {
+    "category": "Management",
+    "service_name": "Container Services"
+  },
+  "azure-arm-cosmosdb": {
+    "category": "Management",
+    "service_name": "CosmosDB Management"
+  },
+  "azure-arm-customerinsights": {
+    "category": "Management",
+    "service_name": "CustomerInsights Management"
+  },
+  "azure-arm-databricks": {
+    "category": "Management",
+    "service_name": "Databricks"
+  },
+  "azure-arm-datacatalog": {
+    "category": "Management",
+    "service_name": "Data Catalog Management"
+  },
+  "azure-arm-datafactory": {
+    "category": "Management",
+    "service_name": "Datafactory Management"
+  },
+  "azure-arm-datalake-analytics": {
+    "service_name": "Data Lake Analytics",
+    "category": "Management"
+  },
+  "azure-arm-datalake-store": {
+    "service_name": "Data Lake Store",
+    "category": "Management"
+  },
+  "azure-arm-datamigration": {
+    "category": "Management",
+    "service_name": "Data Migration"
+  },
+  "azure-arm-deviceprovisioningservices": {
+    "category": "Management",
+    "service_name": "Device Provisioning Services"
+  },
+  "azure-arm-devtestlabs": {
+    "service_name": "DevTest Labs",
+    "category": "Management"
+  },
+  "azure-arm-dns": {
+    "service_name": "DNS",
+    "category": "Management"
+  },
+  "azure-arm-documentdb": {
+    "service_name": "Cosmos DB",
+    "category": "Management"
+  },
+  "azure-arm-domainservices": {
+    "category": "Management",
+    "service_name": "DomainServices Management"
+  },
+  "azure-arm-eventgrid": {
+    "category": "Management",
+    "service_name": "Eventgrid Management"
+  },
+  "azure-arm-eventhub": {
+    "service_name": "Event Hub",
+    "category": "Management"
+  },
+  "azure-arm-hanaonazure": {
+    "category": "Management",
+    "service_name": "HANA on Azure"
+  },
+  "azure-arm-hdinsight": {
+    "service_name": "HDInsight",
+    "category": "Management"
+  },
+  "azure-arm-hdinsight-jobs": {
+    "service_name": "HDInsight",
+    "category": "Management"
+  },
+  "azure-arm-insights": {
+    "service_name": "Monitor",
+    "category": "Management"
+  },
+  "azure-arm-intune": {
+    "category": "Management",
+    "service_name": "Intune"
+  },
+  "azure-arm-iothub": {
+    "service_name": "IoT Hub",
+    "category": "Management"
+  },
+  "azure-arm-keyvault": {
+    "service_name": "Key Vault",
+    "category": "Management"
+  },
+  "azure-arm-locationbasedservices": {
+    "category": "Management",
+    "service_name": "Location Based Services"
+  },
+  "azure-arm-logic": {
+    "service_name": "Logic Apps",
+    "category": "Management"
+  },
+  "azure-arm-machinelearning": {
+    "service_name": "Machine Learning",
+    "category": "Management"
+  },
+  "azure-arm-machinelearningcompute": {
+    "category": "Management",
+    "service_name": "MachinelearningCompute Management"
+  },
+  "azure-arm-machinelearningexperimentation": {
+    "category": "Management",
+    "service_name": "Machine Learning Experimentation"
+  },
+  "azure-arm-managementgroups": {
+    "category": "Management",
+    "service_name": "Management Groups"
+  },
+  "azure-arm-managementpartner": {
+    "category": "Management",
+    "service_name": "Management Partner"
+  },
+  "azure-arm-marketplaceordering": {
+    "category": "Management",
+    "service_name": "Marketplaceordering Management"
+  },
+  "azure-arm-mediaservices": {
+    "service_name": "Media Services",
+    "category": "Management"
+  },
+  "azure-arm-migrate": {
+    "category": "Management",
+    "service_name": "Migrate"
+  },
+  "azure-arm-monitor": {
+    "category": "Management",
+    "service_name": "Monitor Management"
+  },
+  "azure-arm-msi": {
+    "category": "Management",
+    "service_name": "MSI"
+  },
+  "azure-arm-mysql": {
+    "category": "Management",
+    "service_name": "Mysql Management"
+  },
+  "azure-arm-network": {
+    "service_name": "Virtual Network",
+    "category": "Management"
+  },
+  "azure-arm-notificationhubs": {
+    "service_name": "Notification Hubs",
+    "category": "Management"
+  },
+  "azure-arm-operationalinsights": {
+    "service_name": "Operational Insights",
+    "category": "Management"
+  },
+  "azure-arm-operations": {
+    "category": "Management",
+    "service_name": "Operations Management"
+  },
+  "azure-arm-policyinsights": {
+    "category": "Management",
+    "service_name": "Policy Insights"
+  },
+  "azure-arm-postgresql": {
+    "category": "Management",
+    "service_name": "Postgresql Management"
+  },
+  "azure-arm-powerbidedicated": {
+    "category": "Management",
+    "service_name": "Power BI Dedicated"
+  },
+  "azure-arm-powerbiembedded": {
+    "service_name": "PowerBI Embedded",
+    "category": "Management"
+  },
+  "azure-arm-recoveryservices": {
+    "service_name": "Site Recovery",
+    "category": "Management"
+  },
+  "azure-arm-recoveryservices-siterecovery": {
+    "category": "Management",
+    "service_name": "RecoveryServicesSiteRecovery Management"
+  },
+  "azure-arm-recoveryservicesbackup": {
+    "service_name": "Backup",
+    "category": "Management"
+  },
+  "azure-arm-rediscache": {
+    "service_name": "Redis Cache",
+    "category": "Management"
+  },
+  "azure-arm-relay": {
+    "service_name": "Relay",
+    "category": "Management"
+  },
+  "azure-arm-reservations": {
+    "category": "Management",
+    "service_name": "Reservations"
+  },
+  "azure-arm-resource": {
+    "service_name": "Resources",
+    "category": "Management"
+  },
+  "azure-arm-resourcehealth": {
+    "category": "Management",
+    "service_name": "ResourceHealth Management"
+  },
+  "azure-arm-sb": {
+    "service_name": "Service Bus",
+    "category": "Management"
+  },
+  "azure-arm-scheduler": {
+    "service_name": "Scheduler",
+    "category": "Management"
+  },
+  "azure-arm-search": {
+    "service_name": "Search",
+    "category": "Management"
+  },
+  "azure-arm-servermanagement": {
+    "service_name": "Server Management",
+    "category": "Management"
+  },
+  "azure-arm-servicefabric": {
+    "service_name": "Service Fabric",
+    "category": "Management"
+  },
+  "azure-arm-servicemap": {
+    "service_name": "Service Map",
+    "category": "Management"
+  },
+  "azure-arm-sql": {
+    "service_name": "SQL",
+    "category": "Management"
+  },
+  "azure-arm-storage": {
+    "service_name": "Storage",
+    "category": "Management"
+  },
+  "azure-arm-storageimportexport": {
+    "service_name": "Storage",
+    "category": "Management"
+  },
+  "azure-arm-storsimple8000series": {
+    "category": "Management",
+    "service_name": "Storsimple8000series Management"
+  },
+  "azure-arm-streamanalytics": {
+    "category": "Management",
+    "service_name": "Streamanalytics Management"
+  },
+  "azure-arm-subscription": {
+    "category": "Management",
+    "service_name": "Subscription Management"
+  },
+  "azure-arm-timeseriesinsights": {
+    "category": "Management",
+    "service_name": "Time Series Insights"
+  },
+  "azure-arm-trafficmanager": {
+    "service_name": "Traffic Manager",
+    "category": "Management"
+  },
+  "azure-arm-visualstudio": {
+    "category": "Management",
+    "service_name": "Visual Studio Management"
+  },
+  "azure-arm-website": {
+    "service_name": "App Service",
+    "category": "Management"
+  },
+  "azure-batch": {
+    "category": "Client",
+    "service_name": "Batch"
+  },
+  "azure-cognitiveservices-computervision": {
+    "category": "Client",
+    "service_name": "computerVision"
+  },
+  "azure-cognitiveservices-contentmoderator": {
+    "category": "Client",
+    "service_name": "contentModerator"
+  },
+  "azure-cognitiveservices-customsearch": {
+    "category": "Client",
+    "service_name": "customSearch"
+  },
+  "azure-cognitiveservices-entitysearch": {
+    "category": "Client",
+    "service_name": "entitySearch"
+  },
+  "azure-cognitiveservices-face": {
+    "category": "Client",
+    "service_name": "face"
+  },
+  "azure-cognitiveservices-imagesearch": {
+    "category": "Client",
+    "service_name": "imageSearch"
+  },
+  "azure-cognitiveservices-language": {
+    "category": "Client",
+    "service_name": "language"
+  },
+  "azure-cognitiveservices-newssearch": {
+    "category": "Client",
+    "service_name": "newsSearch"
+  },
+  "azure-cognitiveservices-search": {
+    "category": "Client",
+    "service_name": "search"
+  },
+  "azure-cognitiveservices-spellcheck": {
+    "category": "Client",
+    "service_name": "spellCheck"
+  },
+  "azure-cognitiveservices-textanalytics": {
+    "category": "Client",
+    "service_name": "textAnalytics"
+  },
+  "azure-cognitiveservices-videosearch": {
+    "category": "Client",
+    "service_name": "videoSearch"
+  },
+  "azure-cognitiveservices-vision": {
+    "category": "Client",
+    "service_name": "vision"
+  },
+  "azure-cognitiveservices-websearch": {
+    "category": "Client",
+    "service_name": "webSearch"
+  },
+  "azure-eventgrid": {
+    "category": "Client",
+    "service_name": "EventGrid Client"
+  },
+  "azure-graph": {
+    "category": "Client",
+    "service_name": "Graph Management"
+  },
+  "azure-keyvault": {
+    "category": "Client",
+    "service_name": "Keyvault"
+  },
+  "azure-loganalytics": {
+    "category": "Client",
+    "service_name": "Log Analytics"
+  },
+  "azure-servicefabric": {
+    "category": "Client",
+    "service_name": "Service Fabric"
+  }
+}
